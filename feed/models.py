@@ -24,3 +24,8 @@ class Trxn(models.Model):
         choices=CategoryChoices.choices,
         default=None,
     )
+
+    Notes = models.CharField(
+        max_length=240,
+        null=True
+    )

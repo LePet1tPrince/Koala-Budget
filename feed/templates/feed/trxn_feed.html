@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}New Title{% endblock %}
+
+{% block body %}
+    {% for trxn in trxns %}
+        <h3> Date: </h3>{{ trxn.Date }}
+        <h3> Amount: </h3> {{ trxn.Amount }}
+        <h3> Account: </h3> {{ trxn.Account }}
+        <h3> Category: </h3> {{ trxn.Category }}
+        <h3> Notes: </h3> {{ trxn.Notes }}
+
+
+        <hr>
+    {% endfor %}
+{% endblock %}
