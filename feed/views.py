@@ -1,4 +1,5 @@
 from django.views.generic import ListView
+from django.views.generic.edit import CreateView
 
 from .models import Trxn
 
@@ -8,3 +9,15 @@ class HomePage(ListView):
     model = Trxn
     context_object_name = "trxns"
     queryset = Trxn.objects.all().order_by('-Date')[0:50]
+
+
+class CreateNewTrxn(CreateView):
+    model = Trxn
+    template_name = "feed/create.html"
+    fields = [
+        'Date',
+        'Amount',
+        'Account',
+        'Category',
+        'Notes',
+    ]
