@@ -21,3 +21,12 @@ class CreateNewTrxn(CreateView):
         'Category',
         'Notes',
     ]
+    success_url = "/"
+
+    def dispatch(self, request, *args, **kwargs):
+        self.request = request
+        return super().dispatch(request,*args,**kwargs)
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        return super().form_valid(form)
